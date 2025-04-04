@@ -14,8 +14,6 @@ import RSVP from '@/components/RSVP';
 import Footer from '@/components/Footer';
 import ThemeToggle from '@/components/ThemeToggle';
 import LoadingScreen from '@/components/LoadingScreen';
-import CustomCursor from '@/components/CustomCursor';
-import FlyingPosters from '@/components/FlyingPoster/FlyingPosters';
 
 export default function Home() {
   const mainRef = useRef(null);
@@ -106,8 +104,7 @@ export default function Home() {
   
   return (
     <>
-      {/* <CustomCursor cursorType={cursorType} /> */}
-      {/* <ThreeDBackground /> */}
+
       <main ref={mainRef} className="min-h-screen relative z-10">
 
         <ThemeToggle />
