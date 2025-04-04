@@ -17,12 +17,6 @@ import LoadingScreen from '@/components/LoadingScreen';
 import CustomCursor from '@/components/CustomCursor';
 import FlyingPosters from '@/components/FlyingPoster/FlyingPosters';
 
-// Dynamically import the 3D component to avoid SSR issues
-// const ThreeDBackground = dynamic(() => import('@/components/ThreeDBackground'), {
-//   ssr: false,
-//   loading: () => <div className="fixed inset-0 bg-black/20 backdrop-blur-sm"></div>
-// });
-
 export default function Home() {
   const mainRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
