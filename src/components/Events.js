@@ -192,7 +192,7 @@ export default function Events() {
 
         <div className="events-container grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {events.map((event, index) => (
-                  <SpotlightCard className="custom-spotlight-card" spotlightColor="#880E4F">
+                  <SpotlightCard  key="index" className="custom-spotlight-card" spotlightColor="#880E4F">
 
 
   
