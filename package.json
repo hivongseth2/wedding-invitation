@@ -6,8 +6,13 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
-    "build": "next build && next lint --max-warnings=0 || true"
+    "build": "next build && next lint --max-warnings=0 || true",
+    
   },
+  "engines": {
+  "node": "20.x"
+}
+,
   "dependencies": {
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^0.9.420",
