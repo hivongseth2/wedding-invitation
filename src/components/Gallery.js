@@ -8,6 +8,8 @@ import { X, ZoomIn } from "lucide-react"
 import GridImages from "./GridImages/GridImage"
 import ScrollVelocity from "./ScrollVelocity/ScrollVelocity"
 import CircularGallery from "./CircularGallery/CircularGallery"
+import DotComponent from "./Dot/Dot"
+import LoveJourney from "./PipeLine/LovePipeLine"
 export default function Gallery() {
   const galleryRef = useRef(null)
   const [selectedImage, setSelectedImage] = useState(null)
@@ -157,60 +159,14 @@ export default function Gallery() {
           </p>
         </div>
 
-        <GridImages></GridImages>
-
         <CircularGallery></CircularGallery>
 
-        {/* <div className="gallery-grid grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={`gallery-item ${image.span} overflow-hidden rounded-lg cursor-pointer transform transition-all duration-500 shadow-lg glass hover:glass-gold`}
-              onClick={() => openLightbox(image)}
-            >
-              <div className="relative overflow-hidden group h-64">
-                <Image
-                  src={image.src || "/placeholder.svg"}
-                  alt={image.alt}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="glass rounded-full p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300">
-                    <ZoomIn className="h-6 w-6 text-gold" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div> */}
+      
       </div>
 
-      {/* Lightbox */}
-      {/* {selectedImage && (
-        <div
-          className="lightbox-container fixed inset-0 bg-black/90 backdrop-blur-lg z-50 flex items-center justify-center p-4"
-          onClick={closeLightbox}
-        >
-          <div className="relative max-w-4xl max-h-full lightbox-image" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="absolute top-4 right-4 text-white glass rounded-full p-2 hover:glass-gold transition-colors duration-300"
-              onClick={closeLightbox}
-            >
-              <X className="h-6 w-6" />
-            </button>
-            <Image
-              src={selectedImage.src || "/placeholder.svg"}
-              alt={selectedImage.alt}
-              width={1200}
-              height={800}
-              className="max-h-[80vh] w-auto rounded-lg shadow-2xl"
-            />
-          </div>
-        </div>
-      )} */}
+      <DotComponent></DotComponent>
+      <LoveJourney/>
+
     </section>
   )
 }

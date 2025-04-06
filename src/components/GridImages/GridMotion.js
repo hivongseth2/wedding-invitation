@@ -20,7 +20,7 @@ const GridMotion = ({ items = [], gradientColor = 'black' }) => {
     };
 
     const updateMotion = () => {
-      const maxMoveAmount = 120; // Giới hạn di chuyển tối đa
+      const maxMoveAmount = 100; // Giới hạn di chuyển tối đa
       const baseDuration = 1; 
       const inertiaFactors = [0.6, 0.4, 0.3, 0.2];
 

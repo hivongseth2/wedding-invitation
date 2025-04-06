@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import anime from "animejs/lib/anime.es.js";
 import FlyingPosters from "./FlyingPoster/FlyingPosters";
+import GridImages from "./GridImages/GridImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -228,6 +229,9 @@ export default function Story() {
       {/* <div style={{ height: '100vh', position: 'absolute',zIndex:'30',right:"0",top:'0' }}>
         <FlyingPosters items={items}/>
       </div> */}
+
+<GridImages></GridImages>
+
       </div>
 
       <style jsx>{`

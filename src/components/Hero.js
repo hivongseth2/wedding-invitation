@@ -9,6 +9,7 @@ import CountdownTimer from "./CountdownTimer";
 import FallingText from "./FallingText/FallingText";
 import FallingTextIndex from "./FallingText/FallingTextIndex";
 import DecryptedText from "./DescripText/DecryptedText";
+import ScrollAnimation from "./LineScroll/HeartScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -148,7 +149,10 @@ export default function Hero() {
           priority
           className="object-cover opacity-70"
         />
-         <FallingTextIndex/>
+         {/* <FallingTextIndex/> */}
+
+                 <ScrollAnimation></ScrollAnimation>
+
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-pink-900/20 to-black/70" />
       </div>
 
@@ -168,7 +172,7 @@ export default function Hero() {
             </DecryptedText>
         </div>
         <h1 className="hero-title font-serif text-5xl md:text-7xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 mb-8 leading-tight drop-shadow-lg">
-          Chú Rể <span className="inline-block mx-3">&</span> Cô Dâu
+          Chú Rể <span className="inline-block mx-3"></span> Cô Dâu
         </h1>
         <div className="hero-date font-sans text-xl md:text-3xl text-white/90 mb-12 tracking-wide">
                 <DecryptedText

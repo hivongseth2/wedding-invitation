@@ -14,6 +14,15 @@ import RSVP from '@/components/RSVP';
 import Footer from '@/components/Footer';
 import ThemeToggle from '@/components/ThemeToggle';
 import LoadingScreen from '@/components/LoadingScreen';
+import SpotlightCursor from '@/components/Cursor/SpotlightCursor';
+import ScrollAnimation from '@/components/LineScroll/HeartScroll';
+import LovePathAnimation from '@/components/LineScroll/LovePathAnimation';
+import HorizontalImage from '@/components/ScrollImages/HorizontalImage';
+import BeforeAfterHorizontal from '@/components/ScrollImages/HorizontalImage';
+import LoveJourney from '@/components/PipeLine/LovePipeLine';
+import DotComponent from '@/components/Dot/Dot';
+import DotV1Component from '@/components/Dot/DotV1';
+import DotV2Component from '@/components/Dot/DotV2';
 
 export default function Home() {
   const mainRef = useRef(null);
@@ -106,16 +115,31 @@ export default function Home() {
     <>
 
       <main ref={mainRef} className="min-h-screen relative z-10">
+      <SpotlightCursor/>
+        {/* <ScrollAnimation></ScrollAnimation> */}
+        {/* <ThemeToggle /> */}
 
-        <ThemeToggle />
+      {/* <LoveJourney></LoveJourney> */}
+
+
+
+       <LovePathAnimation></LovePathAnimation>
         <Header />
         <Hero />
         <Story />
-        <Events />
-        <Gallery />
-        <RSVP />
-        <Footer />
+        {/* <BeforeAfterHorizontal></BeforeAfterHorizontal> */}
 
+        <Events />
+       
+        <Gallery />
+
+        {/* <DotV1Component/> */}
+
+        {/* <LoveJourney></LoveJourney> */}
+
+
+        <RSVP />
+        <Footer /> 
       </main>
     </>
   );
