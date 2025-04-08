@@ -23,6 +23,7 @@ import LoveJourney from '@/components/PipeLine/LovePipeLine';
 import DotComponent from '@/components/Dot/Dot';
 import DotV1Component from '@/components/Dot/DotV1';
 import DotV2Component from '@/components/Dot/DotV2';
+import ScrollingRing from '@/components/Glb/ScrollingRing';
 
 export default function Home() {
   const mainRef = useRef(null);
@@ -122,11 +123,13 @@ export default function Home() {
       {/* <LoveJourney></LoveJourney> */}
 
 
+          <ScrollingRing></ScrollingRing>
 
-       <LovePathAnimation></LovePathAnimation>
+
+       {/* <LovePathAnimation></LovePathAnimation>
         <Header />
         <Hero />
-        <Story />
+        <Story /> */}
         {/* <BeforeAfterHorizontal></BeforeAfterHorizontal> */}
 
         <Events />
