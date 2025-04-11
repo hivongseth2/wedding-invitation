@@ -130,7 +130,7 @@ export default function Story() {
       description:
         "Chúng tôi gặp nhau lần đầu tại một buổi tiệc của bạn chung. Đó là một cuộc gặp gỡ tình cờ nhưng đầy duyên phận.",
       image:
-        "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "https://i.pinimg.com/736x/d3/df/14/d3df14e4938713b4ba09d1b9810ef5d5.jpg",
     },
     {
       date: "Tháng 12, 2021",
@@ -138,14 +138,14 @@ export default function Story() {
       description:
         "Sau nhiều lần trò chuyện, chúng tôi quyết định có buổi hẹn hò đầu tiên tại một quán cà phê nhỏ ở phố cổ.",
       image:
-        "https://images.unsplash.com/photo-1537378235181-2a01be0b5974?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "https://i.pinimg.com/736x/e6/24/ac/e624aca32ef233901624269a76687407.jpg",
     },
     {
       date: "Tháng 8, 2022",
       title: "Chuyến du lịch đầu tiên",
       description: "Chúng tôi có chuyến du lịch đầu tiên cùng nhau đến Đà Nẵng. Những kỷ niệm tuyệt vời bên bờ biển.",
       image:
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80",
+        "https://i.pinimg.com/736x/7c/31/8f/7c318f66873bdbb2c5c029bef23ac529.jpg",
     },
     {
       date: "Tháng 2, 2023",
@@ -153,7 +153,7 @@ export default function Story() {
       description:
         'Dưới ánh nến lung linh và tiếng nhạc du dương, anh đã quỳ gối và cầu hôn. Và tất nhiên, câu trả lời là "Có"!',
       image:
-        "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "https://i.pinimg.com/736x/7a/0b/d8/7a0bd80916268ea6335ec4e579b02247.jpg",
     },
   ];
   const items = [
@@ -167,9 +167,9 @@ export default function Story() {
       className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
     >
 
-      <div style={{ height: '100vh', position: 'absolute',zIndex:'30',float:"left" }}>
+      {/* <div style={{ height: '100vh', position: 'absolute',zIndex:'30',float:"left" }}>
         <FlyingPosters items={items}/>
-      </div>
+      </div> */}
       {/* Particle container */}
       <div
         ref={particleContainerRef}

@@ -92,6 +92,7 @@ export default function Footer() {
           Cảm ơn bạn đã ghé thăm trang web thiệp cưới của chúng tôi. Chúng tôi rất mong được gặp bạn trong ngày trọng
           đại.
         </p>
+        
 
         <div className="social-icons flex justify-center space-x-6 mb-8">
           <a href="#" className="text-gold hover:text-gold/80 transition-colors transform hover:scale-110 duration-300">

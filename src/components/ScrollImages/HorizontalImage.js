@@ -2,118 +2,105 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
 
-// Đăng ký ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 const BeforeAfterComparison = () => {
   useEffect(() => {
-    // GSAP animation cho mỗi comparison section
-    gsap.utils.toArray(".comparisonSection").forEach(section => {
-      let tl = gsap.timeline({
+    gsap.utils.toArray('.comparisonSection').forEach((section) => {
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: "center center",
-          end: () => "+=" + section.offsetWidth,
+          start: 'top top',
+          end: '+=100%',
           scrub: true,
           pin: true,
-          anticipatePin: 1
         },
-        defaults: { ease: "none" }
       });
 
-      tl.fromTo(
-        section.querySelector(".afterImage"),
-        { xPercent: 100, x: 0 },
-        { xPercent: 0 }
-      )
-      .fromTo(
-        section.querySelector(".afterImage img"),
-        { xPercent: -100, x: 0 },
-        { xPercent: 0 },
-        0
+      tl.to(section.querySelector('.afterImage'), {
+        clipPath: 'inset(0% 0% 0% 0%)',
+        ease: 'power2.out',
+        duration: 1.5,
+      }).fromTo(
+        section.querySelector('.caption'),
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1, ease: 'sine.out' },
+        '-=1'
       );
     });
   }, []);
 
-  // Styled components
-  const Panel = styled.section`
+  const ComparisonSection = styled.section`
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #fdfcfb, #e2d1c3);
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100%;
-    
-    .header-section {
-      font-weight: 400;
-      max-width: none;
-      color: white;
-    }
-  `;
+    overflow: hidden;
 
-  const ComparisonSection = styled.section`
-    position: relative;
-    padding-bottom: 56.25%; /* duy trì aspect ratio */
-    
+    .imageWrapper {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 600px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    }
+
     .comparisonImage {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
     }
 
+    .beforeImage img,
+    .afterImage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     .afterImage {
-      position: absolute;
-      overflow: hidden;
-      top: 0;
-      transform: translate(100%, 0px);
+      clip-path: inset(0% 100% 0% 0%);
     }
 
-    .afterImage img {
-      transform: translate(-100%, 0px);
-    }
-
-    .comparisonImage img {
-      width: 100%;
-      height: 100%;
+    .caption {
       position: absolute;
-      top: 0;
-      object-fit: contain;
+      bottom: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #4c3a2d;
+      font-size: 1.6rem;
+      font-weight: 500;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      opacity: 0;
+      text-align: center;
+      white-space: pre-line;
     }
   `;
 
   return (
-    <>
-      <Panel>
-        <h1 className="header-section">Scroll to see the before/after</h1>
-      </Panel>
-
-      <ComparisonSection className="comparisonSection">
+    <ComparisonSection className="comparisonSection">
+      <div className="imageWrapper">
         <div className="comparisonImage beforeImage">
-          <img 
-
-            src="images/1.png" 
-            alt="before"
-          />
+          <img src="/images/Deep_Diving.jpg" alt="before" />
         </div>
         <div className="comparisonImage afterImage">
-          <img 
-            src="images/2.jpg" 
-            alt="after"
-          />
+          <img src="/images/Train_Track.jpg" alt="after" />
         </div>
-      </ComparisonSection>
-
-
-    </>
+        <div className="caption">
+          {`Ngày xưa là ánh mắt lướt qua nhau...\nHôm nay là cái nắm tay không rời.`}
+        </div>
+      </div>
+    </ComparisonSection>
   );
 };
-
-// CSS cho body nên được đặt ở file CSS global (ví dụ: index.css)
-// body {
-//   height: 300vh;
-//   background-color: #111;
-//   color: white;
-//   overflow-x: hidden;
-// }
 
 export default BeforeAfterComparison;

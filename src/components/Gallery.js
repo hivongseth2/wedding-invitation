@@ -143,7 +143,7 @@ export default function Gallery() {
     <section id="gallery" ref={galleryRef} className="py-20 bg-background relative overflow-hidden">
 
 <ScrollVelocity
-  texts={['React Bits', 'Scroll Down']} 
+  texts={['Thời gian trôi, cảm xúc ở lại', 'Tình yêu là hành trình bất tận']} 
 //   velocity={velocity} 
   className="custom-scroll-text"
 />
@@ -153,9 +153,9 @@ export default function Gallery() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="gallery-header text-center mb-16">
-          <h2 className="gallery-title font-playfair text-4xl md:text-5xl text-gold mb-4">Khoảnh Khắc Đẹp</h2>
+          <h2 className="gallery-title font-playfair text-4xl md:text-5xl text-gold mb-4">Tình yêu không được tạo ra từ những điều hoàn hảo, mà từ những khoảnh khắc vụn vặt — nhưng chân thật</h2>
           <p className="gallery-desc font-montserrat  max-w-2xl mx-auto">
-            Những khoảnh khắc đẹp nhất của chúng tôi được lưu giữ mãi mãi.
+          Mỗi bức ảnh là một bài thơ, mỗi ánh nhìn là một lời yêu chưa nói.
           </p>
         </div>
 
@@ -164,8 +164,7 @@ export default function Gallery() {
       
       </div>
 
-      <DotComponent></DotComponent>
-      <LoveJourney/>
+     
 
     </section>
   )

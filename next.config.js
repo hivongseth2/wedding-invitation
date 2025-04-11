@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['images.unsplash.com', 'via.placeholder.com'],
+    domains: ['images.unsplash.com', 'via.placeholder.com','media-api.xogrp.com','freepik.com','metricleo.com','i.pinimg.com','i.pinimg.com'],
   },
   eslint: {
     ignoreDuringBuilds: true,

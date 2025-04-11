@@ -137,7 +137,7 @@ export default function HorizontalEvents() {
         ))}
       </HorizontalScroll>
       {/* <DotComponent/> */}
-      <HeartComponent></HeartComponent>
+      {/* <HeartComponent></HeartComponent> */}
 
     </section>
   );

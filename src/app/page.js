@@ -24,6 +24,7 @@ import DotComponent from '@/components/Dot/Dot';
 import DotV1Component from '@/components/Dot/DotV1';
 import DotV2Component from '@/components/Dot/DotV2';
 import ScrollingRing from '@/components/Glb/ScrollingRing';
+import EnergyOrb from '@/components/Sync/SyncCanvas';
 
 export default function Home() {
   const mainRef = useRef(null);
@@ -123,25 +124,31 @@ export default function Home() {
       {/* <LoveJourney></LoveJourney> */}
 
 
-          <ScrollingRing></ScrollingRing>
 
 
-       {/* <LovePathAnimation></LovePathAnimation>
+       {/* <LovePathAnimation></LovePathAnimation> */}
         <Header />
-        <Hero />
-        <Story /> */}
-        {/* <BeforeAfterHorizontal></BeforeAfterHorizontal> */}
+        {/* <Hero /> */}
+
+        <EnergyOrb/>
+        <Story /> 
+        <BeforeAfterHorizontal></BeforeAfterHorizontal>
 
         <Events />
-       
+
         <Gallery />
 
         {/* <DotV1Component/> */}
-
+   {/*
         {/* <LoveJourney></LoveJourney> */}
+        {/* <DotV1Component/> */}
 
 
         <RSVP />
+
+
+        <ScrollingRing absolute={true} zIndex={10} showText={true} showProgress={true} />
+
         <Footer /> 
       </main>
     </>

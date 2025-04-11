@@ -122,11 +122,11 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
-  cursor: none !important;
+  /* cursor: none !important; */
 
 }
 
 html:hover{
-  cursor: none;
+  /* cursor: none; */
 }
 
