@@ -23,13 +23,11 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-// Hàm chọn ảnh ngẫu nhiên
 var getRandomImage = function getRandomImage(imageFiles) {
   if (!imageFiles || imageFiles.length === 0) return '/images1/default.jpg';
   var randomIndex = Math.floor(Math.random() * imageFiles.length);
   return "/".concat(imageFiles[randomIndex]);
-}; // Tải dữ liệu bài hát và hình ảnh
-
+};
 
 exports.getRandomImage = getRandomImage;
 
@@ -54,8 +52,7 @@ var useLoadData = function useLoadData(setSongs, setImages) {
       return console.error('Error loading data:', error);
     });
   }, [setSongs, setImages]);
-}; // Cập nhật GSAP timeline
-
+};
 
 exports.useLoadData = useLoadData;
 
@@ -106,8 +103,7 @@ var useGsapAnimations = function useGsapAnimations(songs, t1, t2, playerTrackRef
       }
     }
   };
-}; // Xử lý audio và điều khiển
-
+};
 
 exports.useGsapAnimations = useGsapAnimations;
 
@@ -115,8 +111,7 @@ var useAudioControls = function useAudioControls(audioRef, playerTrackRef, album
   var t1 = (0, _react.useRef)(_gsap.gsap.timeline({
     paused: true,
     reversed: true
-  })); // Xử lý audio events
-
+  }));
   (0, _react.useEffect)(function () {
     var audio = audioRef.current;
     if (!audio) return;
@@ -138,17 +133,14 @@ var useAudioControls = function useAudioControls(audioRef, playerTrackRef, album
 
     var handleSongEnd = function handleSongEnd() {
       if (repeatMode === 'one') {
-        // Lặp lại bài hiện tại
         audio.currentTime = 0;
         audio.play()["catch"](function (err) {
           return console.error('Play error:', err);
         });
       } else if (repeatMode === 'all' && currentSongIndex === songs.length - 1) {
-        // Lặp lại danh sách
         setCurrentSongIndex(0);
         audio.load();
       } else {
-        // Chuyển bài tiếp theo
         handleNext();
       }
     };
@@ -157,7 +149,7 @@ var useAudioControls = function useAudioControls(audioRef, playerTrackRef, album
     audio.addEventListener('ended', handleSongEnd);
     audio.addEventListener('loadedmetadata', function () {
       setTrackLength("".concat(Math.floor(audio.duration / 60) < 10 ? '0' : '').concat(Math.floor(audio.duration / 60), ":").concat(Math.floor(audio.duration % 60) < 10 ? '0' : '').concat(Math.floor(audio.duration % 60)));
-    }); // Tự động phát khi audio sẵn sàng nếu đang ở trạng thái isPlaying
+    });
 
     var handleCanPlay = function handleCanPlay() {
       if (isPlaying) {
@@ -174,7 +166,7 @@ var useAudioControls = function useAudioControls(audioRef, playerTrackRef, album
       audio.removeEventListener('loadedmetadata', function () {});
       audio.removeEventListener('canplay', handleCanPlay);
     };
-  }, [audioRef, currentSongIndex, isSeeking, isPlaying, repeatMode, songs, setCurrentTime, setTrackLength, setSeekProgress]); // Hàm điều khiển
+  }, [audioRef, currentSongIndex, isSeeking, isPlaying, repeatMode, songs, setCurrentTime, setTrackLength, setSeekProgress]);
 
   var handlePlayPause = function handlePlayPause() {
     var audio = audioRef.current;
@@ -183,17 +175,23 @@ var useAudioControls = function useAudioControls(audioRef, playerTrackRef, album
     if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
-      t1.current.reverse();
-      playerTrackRef.current.classList.remove('active');
-      albumArtRef.current.classList.remove('active');
+
+      if (playerTrackRef.current && albumArtRef.current) {
+        t1.current.reverse();
+        playerTrackRef.current.classList.remove('active');
+        albumArtRef.current.classList.remove('active');
+      }
     } else {
       audio.play()["catch"](function (err) {
         return console.error('Play error:', err);
       });
       setIsPlaying(true);
-      t1.current.play();
-      playerTrackRef.current.classList.add('active');
-      albumArtRef.current.classList.add('active');
+
+      if (playerTrackRef.current && albumArtRef.current) {
+        t1.current.play();
+        playerTrackRef.current.classList.add('active');
+        albumArtRef.current.classList.add('active');
+      }
     }
   };
 

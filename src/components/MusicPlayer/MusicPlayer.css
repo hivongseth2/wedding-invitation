@@ -24,38 +24,69 @@ body {
   background-size: cover;
   background-position: 50%;
   filter: blur(40px);
-  backdrop-filter: blur(1px);
-
   -webkit-filter: blur(40px);
   z-index: 1;
 }
 
 .player-bg-layer {
   position: fixed;
-  /* top: 0; */
   right: 0;
   bottom: 0;
   left: 0;
   background-color: #fff;
   opacity: 0.5;
-  z-index:1;
+  z-index: 1;
 }
 
 .player-container {
   position: fixed;
-  bottom: -110px;
+  bottom: 0;
   right: 0;
   left: 0;
-  width: 35em;
+  width: 38em;
   max-width: 90vw;
   height: auto;
-  margin: -4px auto;
-  transform: translateY(-50%);
+  margin: 0 auto;
   z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
 .player {
   position: relative;
+}
+
+.player.minimized {
+  background-color: #fff;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.player-minimized {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 15px 15px 0 0;
+}
+
+.player-minimized .track-name {
+  flex: 1;
+  font-size: 14px;
+  color: #f7335a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 10px;
+}
+
+.player-minimized .control {
+  flex: 0 0 auto;
+}
+
+.player-minimized .button {
+  padding: 10px;
+  height: auto;
 }
 
 .player-track {
@@ -306,6 +337,10 @@ body {
   text-align: center;
 }
 
+.control.minimize-toggle {
+  flex: 0 0 auto;
+}
+
 .button {
   width: 100%;
   height: 26px;
@@ -360,8 +395,6 @@ body {
   border-radius: 0 0 15px 15px;
   padding: 10px;
   overflow-y: auto;
-  border-radius: 5px;
-  border-radius: 3px;
   max-height: 500px;
 }
 
@@ -393,9 +426,7 @@ body {
   .player-container {
     width: 100%;
     max-width: 95vw;
-    top: 10px;
-    transform: none;
-    margin: 10px auto;
+    bottom: 0;
   }
 
   .player-content {
@@ -418,14 +449,13 @@ body {
 
   .album-art {
     position: relative;
-    top: -45px;
+    top: 0;
     margin: 0 auto 15px;
     width: 100px;
     height: 100px;
   }
 
   .album-art.active {
-    top: 0;
     box-shadow: 0 0 0 4px #fff7f7, 0 10px 20px -5px #afb7c1;
   }
 
@@ -437,8 +467,12 @@ body {
   }
 
   .control {
-    flex: 0 0 20%; /* 5 buttons fit in a row */
+    flex: 0 0 20%;
     padding: 5px;
+  }
+
+  .control.minimize-toggle {
+    flex: 0 0 20%;
   }
 
   .button {
@@ -449,6 +483,24 @@ body {
     font-size: 22px;
   }
 
+  .player-minimized {
+    height: 50px;
+    padding: 8px 10px;
+  }
+
+  .player-minimized .track-name {
+    font-size: 13px;
+    margin: 0 8px;
+  }
+
+  .player-minimized .button {
+    padding: 8px;
+  }
+
+  .player-minimized .button svg {
+    font-size: 18px;
+  }
+
   .playlist-toggle {
     width: 100%;
     font-size: 14px;
@@ -457,7 +509,7 @@ body {
 
   .song-list {
     width: 100%;
-    max-height: 300px; /* Smaller playlist height on mobile */
+    max-height: 300px;
   }
 
   .song-item {
@@ -472,8 +524,8 @@ body {
   }
 
   .album-art {
-    width: 140px;
-    height: 140px;
+    width: 80px;
+    height: 80px;
   }
 
   .control {
@@ -496,4 +548,16 @@ body {
     font-size: 16px;
   }
 
+  .player-minimized {
+    height: 45px;
+    padding: 6px 8px;
+  }
+
+  .player-minimized .track-name {
+    font-size: 12px;
+  }
+
+  .player-minimized .button svg {
+    font-size: 16px;
+  }
 }

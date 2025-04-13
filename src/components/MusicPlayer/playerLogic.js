@@ -1,14 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
-// Hàm chọn ảnh ngẫu nhiên
 export const getRandomImage = (imageFiles) => {
   if (!imageFiles || imageFiles.length === 0) return '/images1/default.jpg';
   const randomIndex = Math.floor(Math.random() * imageFiles.length);
   return `/${imageFiles[randomIndex]}`;
 };
 
-// Tải dữ liệu bài hát và hình ảnh
 export const useLoadData = (setSongs, setImages) => {
   useEffect(() => {
     Promise.all([
@@ -28,7 +26,6 @@ export const useLoadData = (setSongs, setImages) => {
   }, [setSongs, setImages]);
 };
 
-// Cập nhật GSAP timeline
 export const useGsapAnimations = (songs, t1, t2, playerTrackRef, albumArtRef) => {
   useEffect(() => {
     t1.current
@@ -79,7 +76,6 @@ export const useGsapAnimations = (songs, t1, t2, playerTrackRef, albumArtRef) =>
   };
 };
 
-// Xử lý audio và điều khiển
 export const useAudioControls = (
   audioRef,
   playerTrackRef,
@@ -100,7 +96,6 @@ export const useAudioControls = (
 ) => {
   const t1 = useRef(gsap.timeline({ paused: true, reversed: true }));
 
-  // Xử lý audio events
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -126,15 +121,12 @@ export const useAudioControls = (
 
     const handleSongEnd = () => {
       if (repeatMode === 'one') {
-        // Lặp lại bài hiện tại
         audio.currentTime = 0;
         audio.play().catch((err) => console.error('Play error:', err));
       } else if (repeatMode === 'all' && currentSongIndex === songs.length - 1) {
-        // Lặp lại danh sách
         setCurrentSongIndex(0);
         audio.load();
       } else {
-        // Chuyển bài tiếp theo
         handleNext();
       }
     };
@@ -149,7 +141,6 @@ export const useAudioControls = (
       );
     });
 
-    // Tự động phát khi audio sẵn sàng nếu đang ở trạng thái isPlaying
     const handleCanPlay = () => {
       if (isPlaying) {
         audio.play().catch((err) => console.error('Play error:', err));
@@ -175,7 +166,6 @@ export const useAudioControls = (
     setSeekProgress,
   ]);
 
-  // Hàm điều khiển
   const handlePlayPause = () => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -183,15 +173,19 @@ export const useAudioControls = (
     if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
-      t1.current.reverse();
-      playerTrackRef.current.classList.remove('active');
-      albumArtRef.current.classList.remove('active');
+      if (playerTrackRef.current && albumArtRef.current) {
+        t1.current.reverse();
+        playerTrackRef.current.classList.remove('active');
+        albumArtRef.current.classList.remove('active');
+      }
     } else {
       audio.play().catch((err) => console.error('Play error:', err));
       setIsPlaying(true);
-      t1.current.play();
-      playerTrackRef.current.classList.add('active');
-      albumArtRef.current.classList.add('active');
+      if (playerTrackRef.current && albumArtRef.current) {
+        t1.current.play();
+        playerTrackRef.current.classList.add('active');
+        albumArtRef.current.classList.add('active');
+      }
     }
   };
 
