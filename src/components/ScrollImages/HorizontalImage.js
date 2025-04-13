@@ -35,7 +35,7 @@ const BeforeAfterComparison = () => {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to bottom, #fdfcfb, #e2d1c3);
+    background:transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,6 +54,7 @@ const BeforeAfterComparison = () => {
     .comparisonImage {
       position: absolute;
       top: 0;
+      background:transparent;
       left: 0;
       width: 100%;
       height: 100%;
@@ -87,7 +88,7 @@ const BeforeAfterComparison = () => {
   `;
 
   return (
-    <ComparisonSection className="comparisonSection">
+    <ComparisonSection className="comparisonSection z-10 bg-transparent">
       <div className="imageWrapper">
         <div className="comparisonImage beforeImage">
           <img src="/images/Deep_Diving.jpg" alt="before" />

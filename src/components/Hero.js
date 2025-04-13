@@ -139,7 +139,7 @@ export default function Hero() {
   const weddingDate = new Date("2026-12-31T00:00:00");
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black z-10">
       {/* Background với gradient overlay */}
       <div ref={bgRef} className="absolute inset-0 z-0">
         <Image

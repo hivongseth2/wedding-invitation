@@ -136,7 +136,7 @@ const WeddingCard = () => {
   }, [])
 
   return (
-    <div className="flex justify-center items-center min-h-[500px] py-16 px-4">
+    <div className="flex justify-center items-center min-h-[500px] py-16 px-4 z-100">
 
       
 <img
@@ -153,7 +153,7 @@ const WeddingCard = () => {
  
       <div
         ref={cardRef}
-        className="relative max-w-md w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 to-white p-8 shadow-xl border border-rose-100"
+        className="relative max-w-md w-full overflow-hidden rounded-2xl bg-gradient-to-br from-rose-50 to-white p-8 shadow-xl border border-rose-100 z-10"
       >
     
         {/* Flower decorations */}
@@ -169,13 +169,13 @@ const WeddingCard = () => {
               top: `${i % 2 === 0 ? 5 + Math.random() * 20 : 70 + Math.random() * 10}%`,
               left: `${i % 2 === 0 ? 5 + Math.random() * 20 : 70 + Math.random() * 10}%`,
               transform: "translate(-50%, -50%)",
-              zIndex: "1",
+              zIndex: "10",
             }}
           />
         ))}
 
         {/* Card content */}
-        <div ref={contentRef} className="relative z-10 text-center">
+        <div ref={contentRef} className="relative z-100 text-center">
           <div className="mb-6 text-rose-800 font-serif">
             <h3 className="text-lg font-light tracking-wide">THIỆP MỜI</h3>
             <h2 className="text-2xl font-semibold mt-1">ĐÁM CƯỚI</h2>

@@ -90,7 +90,7 @@ export default function HorizontalEvents() {
   ];
 
   return (
-    <section ref={eventsRef} className="py-20 relative overflow-hidden">
+    <section ref={eventsRef} className="py-20 relative overflow-hidden z-10">
       <div className="events-header container mx-auto px-4 mb-16 text-center">
         <h2 className="events-title font-playfair text-4xl md:text-5xl text-gold mb-4">
           Sự Kiện Cưới

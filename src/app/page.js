@@ -25,6 +25,7 @@ import DotV1Component from '@/components/Dot/DotV1';
 import DotV2Component from '@/components/Dot/DotV2';
 import ScrollingRing from '@/components/Glb/ScrollingRing';
 import EnergyOrb from '@/components/Sync/SyncCanvas';
+import MusicPlayer from '@/components/MusicPlayer/MusicPlayer';
 
 export default function Home() {
   const mainRef = useRef(null);
@@ -117,7 +118,7 @@ export default function Home() {
     <>
 
       <main ref={mainRef} className="min-h-screen relative z-10">
-      <SpotlightCursor/>
+      {/* <SpotlightCursor/> */}
         {/* <ScrollAnimation></ScrollAnimation> */}
         {/* <ThemeToggle /> */}
 
@@ -125,12 +126,15 @@ export default function Home() {
 
 
 
-
        {/* <LovePathAnimation></LovePathAnimation> */}
         <Header />
-        {/* <Hero /> */}
+        <MusicPlayer
+      songs = {[
+       
+      ]}
+    />
+        <Hero />
 
-        <EnergyOrb/>
         <Story /> 
         <BeforeAfterHorizontal></BeforeAfterHorizontal>
 

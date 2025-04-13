@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import anime from "animejs/lib/anime.es.js";
 import { Menu, X } from "lucide-react";
+import MusicPlayer from "./MusicPlayer/MusicPlayer";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -82,6 +83,7 @@ export default function Header() {
       ref={headerRef}
       className="fixed w-full z-50 py-4 glass-effect transition-all duration-500"
     >
+      
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="text-3xl font-bold text-white">
           C & C
@@ -108,6 +110,9 @@ export default function Header() {
             RSVP
           </Link>
         </nav>
+
+        
+
       </div>
 
       {isMenuOpen && (

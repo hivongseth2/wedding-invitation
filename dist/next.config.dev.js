@@ -9,15 +9,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /** @type {import('next').NextConfig} */
 var nextConfig = {
   images: {
-    domains: ['images.unsplash.com', 'via.placeholder.com', 'media-api.xogrp.com', 'freepik.com', 'metricleo.com', 'i.pinimg.com', 'i.pinimg.com']
+    domains: ['images.unsplash.com', 'via.placeholder.com', 'media-api.xogrp.com', 'freepik.com', 'metricleo.com', 'i.pinimg.com']
   },
   eslint: {
     ignoreDuringBuilds: true
   },
   webpack: function webpack(config, _ref) {
     var isServer = _ref.isServer;
+    // Giữ cấu hình snapshot hiện có
     config.snapshot = _objectSpread({}, config.snapshot, {
       managedPaths: []
+    }); // Bỏ qua react-native-fs để tránh lỗi Module not found
+
+    config.resolve.fallback = _objectSpread({}, config.resolve.fallback, {
+      'react-native-fs': false
     });
     return config;
   }

@@ -151,6 +151,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     fontSize: "2rem",
+    backgroundColor:"transparent",
     fontWeight: "bold",
   },
   button: {
